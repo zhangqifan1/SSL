@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.v.zqfstore"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    //--------- Glide相关 -----------//
+    //使用glide需要后面的防混淆（-keep public class * implements com.bumptech.glide.module.GlideModule）
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.zhy:okhttputils:2.0.0'
+    implementation files('libs/AMap3DMap_5.6.0_AMapLocation_3.6.1_20171128.jar')
+    compile 'com.google.code.gson:gson:2.8.2'
+    //EventBus
+    implementation 'de.greenrobot:eventbus:3.0.0-beta1'
+    //Jsoup
+    compile 'org.jsoup:jsoup:1.9.2'
+    //弘扬屏幕适配
+    compile 'com.zhy:autolayout:1.4.5'
+    //沉浸式的依赖
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    implementation 'com.android.support:design:27.0.2'
+}
